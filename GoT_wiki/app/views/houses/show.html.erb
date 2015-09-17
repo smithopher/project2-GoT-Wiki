@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<img src = '<%= @house.symbol_url %>'/>
 <p>
-  <strong>House name:</strong>
-  <%= @house.house_name %>
+  <h2><strong>House <%= @house.house_name.capitalize %></strong></h2>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @house.description %>
 </p>
+
+<p>House Motto: <%= @house.motto %></p>
+
+<h3>Members of House <%= @house.house_name.capitalize %></h3>
 
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
