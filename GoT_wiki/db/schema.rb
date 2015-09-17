@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150917160430) do
   create_table "houses", force: :cascade do |t|
     t.string   "house_name"
     t.string   "description"
+    t.string   "motto"
+    t.string   "symbol_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
