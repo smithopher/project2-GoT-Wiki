@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :articles
+  resources :houses
   resources :categories
   resources :authors
   # The priority is based upon order of creation: first created -> highest priority.
