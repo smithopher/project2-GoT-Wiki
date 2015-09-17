@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @article.author %>
+  <strong>Title:</strong>
+  <%= @article.title %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  <strong>Category:</strong>
+  <%= @article.category.type_name.capitalize %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @article.house.house_name.capitalize %>
 </p>
 
 <p>
@@ -15,25 +20,11 @@
   <%= @article.content %>
 </p>
 
-<p>
-  <strong>Updated at:</strong>
-  <%= @article.updated_at %>
-</p>
+<img src = '<%= @article.photo_path %>'/>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category %>
-</p>
-
-<p>
-  <strong>House:</strong>
-  <%= @article.house %>
-</p>
-
-<p>
-  <strong>Photo path:</strong>
-  <%= @article.photo_path %>
-</p>
+<footer>
+  <strong>Updated at: <%=@article.updated_at %> by: <%=@article.author%></strong>
+</footer>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
