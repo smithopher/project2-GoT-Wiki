@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
   end
 
+  def current_author
+    if session[:author_id]
+      Author.find(session[:author_id])
+    end
+  end
+  helper_method :current_author
 
 end

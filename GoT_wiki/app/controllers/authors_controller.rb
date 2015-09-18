@@ -37,6 +37,33 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def login
+    if current_author
+      redirect_to '/'
+    else
+      render:login
+    end
+  end
+
+  def logout
+    session[:author_id] = nil
+    redirect_to '/'
+  end
+
+  def login_post
+    @author = Author.find_by({login: params[:login]})
+    if @author
+      if @author.authenticate(params[:password])
+        session[:author_id] = @author.id
+        redirect_to '/'
+      else
+        redirect_to '/login'
+      end
+    else
+      redirect_to '/login'
+    end
+  end
+
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
   def update
@@ -69,6 +96,6 @@ class AuthorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.require(:author).permit(:name, :email, :login, :password_digest)
+      params.require(:author).permit(:name, :email, :login, :password)
     end
 end
