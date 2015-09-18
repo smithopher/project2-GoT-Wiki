@@ -7,6 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav id = 'left_menu'>
+    <h4><a href = '/'>Home</a></h4>
+    <h4><a href = '/houses'>Houses</a></h4>
+      <ul class = 'menu'>
+        <%@houses.each do |house|%>
+        <li><a href = '/houses/<%=house.id%>'><%=house.house_name.capitalize%></a></li>
+        <%end%>
+      </ul>
+    <h4><a href = '/categories'>Categories</a></h4>
+      <ul class = 'menu'>
+        <%@categories.each do |category|%>
+        <li><a href = '/categories/<%=category.id%>'><%=category.type_name.capitalize%></a></li>
+        <%end%>
+      </ul>
+    <h4><a href = '/articles'>Articles</a></h4>
+  </nav>
 
 <%= yield %>
 

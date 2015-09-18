@@ -20,26 +20,32 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.label :category_id %>
+    <select name = 'categories[id]'>
+      <% @categories.each do |category| %>
+      <option><%=category.type_name.capitalize%></option>
+      <%end%>
+    </select>
   </div>
   <div class="field">
-    <%= f.label :updated_at %><br>
-    <%= f.datetime_select :updated_at %>
+    <%= f.label :house_id %>
+    <select name = 'houses[id]'>
+      <% @houses.each do |house|%>
+      <option><%=house.house_name.capitalize%></option>
+      <%end%>
+    </select>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :house_id %><br>
-    <%= f.text_field :house_id %>
-  </div>
+  <br>
   <div class="field">
     <%= f.label :photo_path %><br>
     <%= f.text_field :photo_path %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<%@article.updated_at = Time.now%>

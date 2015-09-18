@@ -13,15 +13,31 @@
  *= require_tree .
  *= require_self
  */
+#welcome_headline {
+  text-align: center;
+  padding-top: 75px;
+}
 #left_menu {
   float: left;
   margin-left: 0;
+  margin-top: 0;
   width: 100px;
-  text-align: center;
+  height: 1000px;
+  text-align: left;
+  border-right: solid 1px #000000;
+  padding-top: 100px;
 }
 
 img {
   max-height: 350px;
   max-width: 350px;
   float: right;
+}
+
+ul.menu {
+  list-style: none;
+}
+
+#left_menu li {
+  margin-left: -40px;
 }

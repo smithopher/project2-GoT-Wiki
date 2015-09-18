@@ -15,10 +15,7 @@
   <%= @article.house.house_name.capitalize %>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+<%= markdown(@article.content) %>
 
 <img src = '<%= @article.photo_path %>'/>
 
