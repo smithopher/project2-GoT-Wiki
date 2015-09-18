@@ -23,5 +23,9 @@
   <strong>Updated at: <%=@article.updated_at %> by: <%=@article.author%></strong>
 </footer>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if session[:author_id] %>
+  <%= link_to 'Edit', edit_article_path(@article) %>
+<% else %>
+  <%= link_to'You must be logged in to edit', '/login'%>
+<% end %>
 <%= link_to 'Back', articles_path %>

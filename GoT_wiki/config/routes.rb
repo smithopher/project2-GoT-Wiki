@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/login', to: 'authors#login'
   get '/login/create', to: 'authors#new'
   post '/login', to: 'authors#login_post'
+  get '/logout', to: 'authors#logout'
+  get 'authors/:id', to: 'authors#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

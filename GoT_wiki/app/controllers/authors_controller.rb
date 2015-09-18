@@ -45,23 +45,23 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def logout
-    session[:author_id] = nil
-    redirect_to '/'
-  end
-
   def login_post
     @author = Author.find_by({login: params[:login]})
     if @author
       if @author.authenticate(params[:password])
         session[:author_id] = @author.id
-        redirect_to '/'
+        redirect_to "/authors/#{@author.id}"
       else
         redirect_to '/login'
       end
     else
       redirect_to '/login'
     end
+  end
+
+  def logout
+    session[:author_id] = nil
+    redirect_to '/login'
   end
 
   # PATCH/PUT /authors/1
