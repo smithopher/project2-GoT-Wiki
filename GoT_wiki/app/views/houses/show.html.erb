@@ -12,6 +12,19 @@
 <p><strong>House Motto</strong>: <%= @house.motto %></p>
 
 <h3>Members of House <%= @house.house_name.capitalize %></h3>
+<ul>
+  <% @articles.each do |article|%>
+    <% if article.house_id == @house.id %>
+  <li><%=link_to article.title, article %></li>
+    <% end %>
+  <% end %>
+</ul>
 
-<%= link_to 'Edit', edit_house_path(@house) %> |
+
+<% if session[:author_id] %>
+  <%= link_to 'Edit', edit_house_path(@house) %>
+<% else %>
+  <%= link_to'You must be logged in to edit', '/login'%>
+<% end %>
+<br>
 <%= link_to 'Back', houses_path %>

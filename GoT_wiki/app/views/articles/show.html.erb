@@ -10,17 +10,21 @@
   <%= @article.category.type_name.capitalize %>
 </p>
 
+<%if @article.house.house_name == 'not applicable'%>
+  <% %>
+<%else%>
 <p>
   <strong>House:</strong>
   <%= @article.house.house_name.capitalize %>
 </p>
+<%end%>
 
 <%= markdown(@article.content) %>
 
 <img src = '<%= @article.photo_path %>'/>
 
 <footer>
-  <strong>Updated at: <%=@article.updated_at %> by: <%=@article.author%></strong>
+  <strong>Updated at:</strong> <%=@article.updated_at %> <strong>by:</strong> <%=@article.author.login%>
 </footer>
 
 <% if session[:author_id] %>

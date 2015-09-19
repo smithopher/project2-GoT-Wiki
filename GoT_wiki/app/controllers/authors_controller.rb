@@ -50,7 +50,7 @@ class AuthorsController < ApplicationController
     if @author
       if @author.authenticate(params[:password])
         session[:author_id] = @author.id
-        redirect_to "/authors/#{@author.id}"
+        redirect_to "/"
       else
         redirect_to '/login'
       end

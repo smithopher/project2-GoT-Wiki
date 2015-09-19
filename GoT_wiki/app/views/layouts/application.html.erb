@@ -17,7 +17,11 @@
     <h4><a href = '/houses'>Houses</a></h4>
       <ul class = 'menu'>
         <%@houses.each do |house|%>
-        <li><a href = '/houses/<%=house.id%>'><%=house.house_name.capitalize%></a></li>
+          <%if house.house_name == 'not applicable'%>
+          <% %>
+          <% else %>
+          <li><a href = '/houses/<%=house.id%>'><%=house.house_name.capitalize%></a></li>
+          <%end%>
         <%end%>
       </ul>
     <h4><a href = '/categories'>Categories</a></h4>

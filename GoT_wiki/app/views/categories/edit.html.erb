@@ -1,6 +1,10 @@
 <h1>Editing Category</h1>
 
-<%= render 'form' %>
+<% if session[:author_id] %>
+  <%= render 'form' %>
+<% else %>
+  <%= link_to'You must be logged in to do that!', '/login'%>
+<% end %>
 
 <%= link_to 'Show', @category %> |
 <%= link_to 'Back', categories_path %>

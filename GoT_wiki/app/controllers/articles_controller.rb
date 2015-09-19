@@ -1,3 +1,5 @@
+require 'pry'
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -25,7 +27,8 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @article.author_id = current_author.id
+    @article.author = Author.find(current_author)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -40,6 +43,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @article.author_id = current_author
+    @article.author = Author.find(current_author)
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -69,6 +74,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:author_id, :title, :content, :updated_at, :category_id, :house_id, :photo_path)
+      params.require(:article).permit(:title, :content, :updated_at, :category_id, :house_id, :photo_path)
     end
 end

@@ -10,5 +10,18 @@
   <%= @category.description %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
+<ul>
+  <% @articles.each do |article|%>
+    <% if article.category_id == @category.id %>
+  <li><%=link_to article.title, article %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if session[:author_id] %>
+  <%= link_to 'Edit', edit_category_path(@category) %>
+<% else %>
+  <%= link_to'You must be logged in to edit', '/login'%>
+<% end %>
+<br>
 <%= link_to 'Back', categories_path %>

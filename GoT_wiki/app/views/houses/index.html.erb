@@ -21,4 +21,8 @@
 
 <br>
 
-<%= link_to 'New House', new_house_path %>
+<% if session[:author_id] %>
+  <%= link_to 'New House', new_house_path %>
+<% else %>
+  <%= link_to'You must be logged in to create new house.', '/login'%>
+<% end %>

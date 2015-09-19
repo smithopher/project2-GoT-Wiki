@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def set_variables
     @houses = House.all
     @categories = Category.all
+    @articles = Article.all
+    @authors = Author.all
   end
 
   def current_author
