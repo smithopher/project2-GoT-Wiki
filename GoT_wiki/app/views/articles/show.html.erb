@@ -24,7 +24,7 @@
 <img src = '<%= @article.photo_path %>'/>
 
 <footer>
-  <strong>Updated at:</strong> <%=@article.updated_at %> <strong>by:</strong> <%=@article.author.login%>
+  <strong>Updated at:</strong> <%=@article.updated_at %> <strong>by: </strong><a href = '/authors/<%=@article.author.id%>'><%=@article.author.login%></a>
 </footer>
 
 <% if session[:author_id] %>
