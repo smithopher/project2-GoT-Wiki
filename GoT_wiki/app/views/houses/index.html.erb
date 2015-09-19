@@ -2,23 +2,15 @@
 
 <h1>The Spokes on the Wheel</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>House name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <td><%= link_to house.house_name.capitalize, house %></td>
-      </tr>
+<ul>
+  <% @houses.order(:house_name).each do |house| %>
+    <% if house.house_name == 'not applicable' %>
+      <% %>
+    <% else %>
+        <li><%= link_to house.house_name.capitalize, house %></li>
     <% end %>
-  </tbody>
-</table>
-
+  <% end %>
+</ul>
 <br>
 
 <% if session[:author_id] %>
