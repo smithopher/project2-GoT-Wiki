@@ -10,4 +10,8 @@
   <%= @author.email %>
 </p>
 
-<%= link_to 'Edit', edit_author_path(@author) %>
+<% if current_author == @author %>
+  <%= link_to 'Edit', edit_author_path(@author) %>
+<% else %>
+  <% %>
+<%end%>
