@@ -1,30 +1,31 @@
 <p id="notice"><%= notice %></p>
 <img src = '<%= @house.symbol_url %>'/>
-<p>
-  <h2><strong>House <%= @house.house_name.capitalize %></strong></h2>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @house.description %>
-</p>
+<h1><strong>House <%= @house.house_name.capitalize %></strong></h1>
 
-<p><strong>House Motto</strong>: <%= @house.motto %></p>
+<div class = 'content'>
+  <p>
+    <strong>Description:</strong>
+    <%= @house.description %>
+  </p>
 
-<h3>Members of House <%= @house.house_name.capitalize %></h3>
-<ul>
-  <% @articles.order(:title).each do |article|%>
-    <% if article.house_id == @house.id %>
-  <li><%=link_to article.title, article %></li>
+  <p><strong>House Motto</strong>: <%= @house.motto %></p>
+
+  <h3>Members of House <%= @house.house_name.capitalize %></h3>
+  <ul>
+    <% @articles.order(:title).each do |article|%>
+      <% if article.house_id == @house.id %>
+    <li><%=link_to article.title, article %></li>
+      <% end %>
     <% end %>
+  </ul>
+
+
+  <% if session[:author_id] %>
+    <%= link_to 'Edit', edit_house_path(@house) %>
+  <% else %>
+    <%= link_to'You must be logged in to edit', '/login'%>
   <% end %>
-</ul>
-
-
-<% if session[:author_id] %>
-  <%= link_to 'Edit', edit_house_path(@house) %>
-<% else %>
-  <%= link_to'You must be logged in to edit', '/login'%>
-<% end %>
-<br>
+  <br>
+</div>
 <%= link_to 'Back', houses_path %>

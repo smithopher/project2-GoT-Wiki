@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>The Spokes on the Wheel</h1>
+<h1 class = 'headline'>The Spokes on the Wheel</h1>
 
 <ul>
   <% @houses.order(:house_name).each do |house| %>
     <% if house.house_name == 'not applicable' %>
       <% %>
     <% else %>
-        <li><%= link_to house.house_name.capitalize, house %></li>
+        <li class = 'listing'><%= link_to house.house_name.capitalize, house %></li>
     <% end %>
   <% end %>
 </ul>
 <br>
-
-<% if session[:author_id] %>
-  <%= link_to 'New House', new_house_path %>
-<% else %>
-  <%= link_to'You must be logged in to create new house.', '/login'%>
-<% end %>
+<div class = 'create'>
+  <% if session[:author_id] %>
+    <%= link_to 'New House', new_house_path %>
+  <% else %>
+    <%= link_to'You must be logged in to create new house.', '/login'%>
+  <% end %>
+</div>
