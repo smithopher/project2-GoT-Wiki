@@ -1,35 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<h1><%= @article.title %></h1>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category.type_name.capitalize %>
-</p>
+<div class = 'content' id = 'a_content'>
+  <p>
+    <strong>Category:</strong>
+    <%= @article.category.type_name.capitalize %>
+  </p>
 
-<%if @article.house.house_name == 'not applicable'%>
-  <% %>
-<%else%>
-<p>
-  <strong>House:</strong>
-  <%= @article.house.house_name.capitalize %>
-</p>
-<%end%>
+  <%if @article.house.house_name == 'not applicable'%>
+    <% %>
+  <%else%>
+  <p>
+    <strong>House:</strong>
+    <%= @article.house.house_name.capitalize %>
+  </p>
+  <%end%>
 
-<%= markdown(@article.content) %>
+  <%= markdown(@article.content) %>
 
-<img src = '<%= @article.photo_path %>'/>
+  <img src = '<%= @article.photo_path %>'/>
 
-<footer>
-  <strong>Updated at:</strong> <%=@article.updated_at %> <strong>by: </strong><a href = '/authors/<%=@article.author.id%>'><%=@article.author.login%></a>
-</footer>
-
-<% if session[:author_id] %>
-  <%= link_to 'Edit', edit_article_path(@article) %>
-<% else %>
-  <%= link_to'You must be logged in to edit', '/login'%>
-<% end %>
-<%= link_to 'Back', articles_path %>
+  <% if session[:author_id] %>
+    <%= link_to 'Edit', edit_article_path(@article) %>
+  <% else %>
+    <%= link_to'You must be logged in to edit', '/login'%>
+  <% end %> |
+  <%= link_to 'Back', articles_path %>
+  <footer>
+    <strong>Updated at:</strong> <%=@article.updated_at %> <strong>by: </strong><a href = '/authors/<%=@article.author.id%>'><%=@article.author.login%></a>
+  </footer>
+</div>

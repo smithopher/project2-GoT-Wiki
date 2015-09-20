@@ -81,4 +81,29 @@ ul {
 
 a {
   color: #FFFFFF;
+  text-decoration: none;
+}
+
+.content {
+  margin: 0 20%;
+}
+
+#a_content {
+  background-color: #333333;
+  border: solid #FFFFFF 5px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#article_content {
+  width: 500px;
+  height: 250px;
+}
+
+footer {
+  text-align: right;
+}
+
+.login_form {
+  display: block;
 }

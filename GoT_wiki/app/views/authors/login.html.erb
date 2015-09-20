@@ -1,9 +1,9 @@
-<form action='/login' method='post'>
+<form action='/login' method='post' id = 'login_form'>
   <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'/>
   <label for ='login_box'>Login:</label>
-  <input type = 'text' name='login' id = 'login_box'><br>
+  <input type = 'text' name='login' id = 'login_box' class = 'login_form'><br>
   <label for = 'password'>Password:</label>
-  <input type = 'password' name = 'password' id = 'password'>
+  <input type = 'password' name = 'password' id = 'password' class = 'login_form'>
   <input type = 'submit' value = 'Log In'>
 </form>
 <a href = '/login/create'>Don't have a login? Register here!</a>
